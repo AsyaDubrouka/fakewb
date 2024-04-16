@@ -16,10 +16,11 @@ const btnBasket = createElement(
   "Basket"
 );
 btnBasket.addEventListener("click", basket);
-const popupBucket = createElement("div", root, "modal");
-const btnClose = createElement("button", popupBucket, "btn__close", null, "🗙");
+const modalBasket = createElement("div", root, "modal");
+// const modalBasketOpen = createElement("div", modalBasket, "modal-opened");
+const btnClose = createElement("button", modalBasket, "btn__close", null, "🗙");
 btnClose.addEventListener("click", close);
-const popupContent = createElement("div", popupBucket, "popup__content");
+
 const sliderContainer = createElement("div", root, "slider-container");
 const slider = createElement("div", sliderContainer, "slider");
 const pathsToImages = [
@@ -156,7 +157,14 @@ function updateSlider() {
 
 updateSlider();
 
-function basket() {}
+function basket(event) {
+const contents = getCartData();
+openModal();
+}
+function openModal() {
+const modal = document.getElementsByClassName("modal")?.[0]  
+modal.classList.add("opened")
+}
 
 function createCard(product) {
   const shopCart = createElement("div", shopProducts, "shop__cart", [
@@ -237,3 +245,10 @@ function add(event) {
 //     modal.style.display = 'none';
 //   }
 // };
+function close() {
+closeModal();
+}
+function closeModal() {
+  const modal = document.getElementsByClassName("modal")?.[0]  
+  modal.classList.remove("opened")
+  }

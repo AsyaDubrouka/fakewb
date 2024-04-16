@@ -1,11 +1,28 @@
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
+  display: none; /* скрыт по умолчанию */
+  /* темный фон при открытии модалки должен быть на всю страницу */
+  position: fixed; 
+  z-index: 1; /* поверх всех элементов */
+  right: 0;
+  top: 0;
+  width: 100vw; /* полная ширина */
+  height: 35%; /* полная высота */
+
+}
+
+/* само модальное окно с контентом */
+.modal.opened {
+  display: block;
+  background-color: #fff;
+  /* окно будет находится по центру по горизонтали и с отступом сверху в 100 px */
+  margin: 20px auto; 
+  padding: 20px;
+  width: 20%; 
+  font-size: 20px;
+  /* разнесем текст и кнопоку по краям окна */
+ 
+ }
+ .btn__close {
+  padding-right: 20px;
+  background-color: red;
+ }
